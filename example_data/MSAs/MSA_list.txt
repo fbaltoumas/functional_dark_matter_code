@@ -1,0 +1,5 @@
+full/F015059.fasta
+full/F040820.fasta
+full/F008041.fasta
+full/F000424.fasta
+full/F002267.fasta

@@ -71,7 +71,7 @@ def mk_msa(seqs):
 
 
 #define the location of the hhfilter exe from hhsuite
-hhfilter="/usr/bin/hhfilter"
+
 
 
 
@@ -84,10 +84,11 @@ parser = argparse.ArgumentParser(prog="prepare_MSA_for_alphafold.py", descriptio
 parser.version=0.1
 help=parser._action_groups.pop()
 required = parser.add_argument_group('required arguments')
-required.add_argument("-i", type=str, action='store', metavar="input.fasta", help="input multiple sequence alignment in FASTA or A2M format", required=True)
+required.add_argument("--input", type=str, action='store', metavar="input.fasta", help="input multiple sequence alignment in FASTA or A2M format", required=True)
 parser.add_argument("--prehhfilter", action='store_true', help="Run  hhfilter BEFORE the main refinement, to make things faster")
-parser.add_argument("-id", action='store', metavar=90, default= 90, help="Sequence Identity cut-off.  Default: 90%%")
-parser.add_argument("-cov", action='store', metavar=75, default= 75, help="Alignment Coverage cut-off.  Default: 75%%")
+parser.add_argument("--id", action='store', metavar=90, default= 90, help="Sequence Identity cut-off.  Default: 90%%")
+parser.add_argument("--cov", action='store', metavar=75, default= 75, help="Alignment Coverage cut-off.  Default: 75%%")
+parser.add_argument("--hhfilter_bin", action='store', default='/usr/bin/hhfilter', help='Location of the hhfilter binary')
 parser.add_argument("-v", action='version', help="display version and exit")
 parser._action_groups.append(help)
 args = parser.parse_args()
@@ -114,10 +115,12 @@ def remove_positions(seq, positions):
 
 
 if args:
-    inp=args.i
+    inp=args.input
     cov=args.cov
     id=args.id
     run_hhfilter=args.prehhfilter
+    if args.hhfilter_bin:
+        hhfilter = args.hhfilter_bin
 else:
     exit()
 

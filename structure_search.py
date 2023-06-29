@@ -5,8 +5,8 @@ import subprocess as sp
 import time
 
 # TMalign and MMalign locations
-tmalign = "/usr/local/bin/TMalign"
-mmalign = "/opt/mmalign/MMalign"
+tmalign = "/usr/bin/TMalign"
+mmalign = "/usr/bin/MMalign"
 
 # GLOBALS --- these can be overriden by the parser arguments
 method = tmalign
@@ -26,6 +26,7 @@ def create_parser():
                           default='tmalign', required=False)
     optional.add_argument('--cpus', type=int, action='store', help='No. of CPUs to use. Set to 0 to use all CPUs',
                           default=0, required=False)
+    optional.add_argument("--bin", type=str, action='store', help = 'Location of TMalign/MMalign executable. If not used, the default paths (defined in lines 8-9) will be used')
     optional.add_argument('-h', '--help', action='help', help='Show this help message.')
     args = parser.parse_args()
     return args
@@ -81,10 +82,13 @@ if __name__ == "__main__":
     # parse CMD input
     query_list = parse_list(arg_parser.query)
     target_list = parse_list(arg_parser.target)
-    if arg_parser.method.lower() == "tmalign":
-        method = tmalign
+    if arg_parser.bin:
+        method = arg_parser.bin
     else:
-        method = mmalign
+        if arg_parser.method.lower() == "tmalign":
+            method = tmalign
+        else:
+            method = mmalign
     if arg_parser.cpus > 0:
         cpus = arg_parser.cpus
     # pool resources for parallel execution, based on the assigned cpu count

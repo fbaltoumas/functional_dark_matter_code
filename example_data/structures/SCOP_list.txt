@@ -1,0 +1,5 @@
+SCOP/d6sxta1.ent
+SCOP/d1a8da1.ent
+SCOP/d6vk6a_.ent
+SCOP/d6xg7a_.ent
+SCOP/d4wjka_.ent
