@@ -34,7 +34,7 @@ pip3 install numpy scipy scikit-learn biopython prody
 
 ```
 
-2.
+Optimally, this will take around 5 minutes to set up.
 
 
 ### Example runs:
