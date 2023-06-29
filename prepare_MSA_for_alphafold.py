@@ -80,7 +80,7 @@ hhfilter="/usr/bin/hhfilter"
 
 
 ##### Command Line Interface (CLI) #####
-parser = argparse.ArgumentParser(prog="prepare_MSA_for_alphafold", description="script to refine a multiple sequence alignment")
+parser = argparse.ArgumentParser(prog="prepare_MSA_for_alphafold.py", description="script to refine a multiple sequence alignment")
 parser.version=0.1
 help=parser._action_groups.pop()
 required = parser.add_argument_group('required arguments')
