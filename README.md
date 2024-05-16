@@ -3,7 +3,9 @@
 
 This repository contains script used for the manipulation of sequence alignments, preparation for 3D modeling and mass-scale 3D structure search of PDB models against reference datasets (e.g. PDB, SCOP) with TMalign/MMalign.
 
-The aforementioned code was used in Pavlopoulos et al (2023), Unraveling the functional dark matter through global metagenomics. https://doi.org/10.1038/s41586-019-0000-0
+The aforementioned code was used in Pavlopoulos, G.A., Baltoumas, F.A., Liu, S. et al. Unraveling the functional dark matter through global metagenomics. _Nature_ 622, 594–602 (2023), **doi**: https://doi.org/10.1038/s41586-023-06583-7
+
+
 
 ### Contents:
 - `generate_seed.py` : parses a multiple sequence alignment in FASTA format and produces its consensus sequence and a non-redundant dataset ("seed" alignment)
